@@ -1,20 +1,25 @@
-const dotenv = require('dotenv').config();
+require('dotenv').config();
 
 const express = require('express');
 const cors = require('cors');
 const createError = require('http-errors');
 
-//setup app & its routes
+// Initialize express and routes
 const app = express();
 app.use(cors());
 const routes = require('./routes/index.route');
 app.use(routes);
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// 404 handler
 app.use((req, res, next) => {
     next(createError(404, 'Not found'));
 })
 
-app.use((err, req, res) => {
+// Error handler
+app.use((err, req, res, next) => {
     res.status(err.status || 500);
     res.send({
         error: {
