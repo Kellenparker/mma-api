@@ -1,1 +1,1 @@
-# Boxing API
+# MMA API   
