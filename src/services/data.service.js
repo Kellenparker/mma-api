@@ -1,14 +1,16 @@
-const data = require('../testdata');
+const get = function (_id) {
+    const mongo = require("../db/init.db");
+    return mongo.query();
+};
 
-const get = function(_id){
-    return getAll().find(boxer => boxer.id == _id);
-}
-
-const getAll = function(){
-    return data.Boxers;
-}
+const getAll = async function () {
+    const mongo = require("../db/init.db");
+    return new Promise(function(resolve, object) {
+        mongo.query().then(val => resolve(val));
+    })
+};
 
 module.exports = {
     get,
-    getAll
+    getAll,
 };

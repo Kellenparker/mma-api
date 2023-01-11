@@ -4,8 +4,8 @@ const get = function(req, res){
     res.send(dataService.get(req.params._id))
 }
 
-const getAll = function(req, res){
-    res.send(dataService.getAll())
+const getAll = async function(req, res){
+    res.send(await dataService.getAll())
 }
 
 module.exports = {

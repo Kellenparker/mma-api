@@ -9,19 +9,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kellenparker/boxing-api.git"
+    "url": "git+https://github.com/Kellenparker/mma-api.git"
   },
   "author": "Kellen Parker",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Kellenparker/boxing-api/issues"
+    "url": "https://github.com/Kellenparker/mma-api/issues"
   },
-  "homepage": "https://github.com/Kellenparker/boxing-api#readme",
+  "homepage": "https://github.com/Kellenparker/mma-api#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "http-errors": "^2.0.0",
+    "mongodb": "^4.13.0",
     "nodemon": "^2.0.20",
     "yargs": "^17.6.2"
   }

@@ -1,12 +1,10 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router({ mergeParams: true });
 
-const dataController = require('../controllers/data.controller');
+const dataController = require("../controllers/data.controller");
 
-router.route('/')
-    .get(dataController.getAll);
+router.route("/").get(dataController.getAll);
 
-router.route('/:_id')
-    .get(dataController.get);
+router.route("/:_id").get(dataController.get);
 
 module.exports = router;
