@@ -10,10 +10,6 @@ app.use(cors());
 const routes = require('./routes/index.route');
 app.use(routes);
 
-// Initialize database
-const db = require("./db/init.db")
-db.connectDatabase();
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

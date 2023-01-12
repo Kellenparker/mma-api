@@ -5,6 +5,6 @@ const dataController = require("../controllers/data.controller");
 
 router.route("/").get(dataController.getAll);
 
-router.route("/:_id").get(dataController.get);
+router.route("/name=:_name").get(dataController.getName);
 
 module.exports = router;

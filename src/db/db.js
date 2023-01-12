@@ -1,5 +1,7 @@
 const { MongoClient, ServerApiVersion } = require("mongodb");
-const uri = "mongodb+srv://kellenparker:qfGYr9Rg1It2kElY@mma-stats.blcq8ae.mongodb.net/?retryWrites=true&w=majority";
+require('dotenv').config();
+
+const uri = process.env.URI;
 const client = new MongoClient(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -16,12 +18,12 @@ const closeDatabase = () => {
     client.close();
 }
 
-const query = async () => {
+const nameQuery = async (name) => {
     connectDatabase();
     try {
         const database = client.db("mma");
         const fighters = database.collection("fighters");
-        const query = { ni: "" };
+        const query = { na: new RegExp(name.replace("_", " "), "i") };
         const cursor = fighters.find(query);
         return new Promise(function(resolve, object) {
             resolve(cursor.toArray());
@@ -30,4 +32,4 @@ const query = async () => {
     }
 };
 
-module.exports = { connectDatabase, query };
+module.exports = { connectDatabase, nameQuery };

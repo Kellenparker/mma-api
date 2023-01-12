@@ -1,16 +1,18 @@
-const get = function (_id) {
-    const mongo = require("../db/init.db");
-    return mongo.query();
+const mongo = require("../db/db");
+
+const getName = async function (_name) {
+    return new Promise(function(resolve, object) {
+        mongo.nameQuery(_name).then(val => resolve(val));
+    })
 };
 
 const getAll = async function () {
-    const mongo = require("../db/init.db");
     return new Promise(function(resolve, object) {
         mongo.query().then(val => resolve(val));
     })
 };
 
 module.exports = {
-    get,
+    getName,
     getAll,
 };

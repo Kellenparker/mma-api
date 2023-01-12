@@ -1,7 +1,7 @@
 const dataService = require('../services/data.service');
 
-const get = function(req, res){
-    res.send(dataService.get(req.params._id))
+const getName = async function(req, res){
+    res.send(await dataService.getName(req.params._name))
 }
 
 const getAll = async function(req, res){
@@ -9,6 +9,6 @@ const getAll = async function(req, res){
 }
 
 module.exports = {
-    get,
+    getName,
     getAll
 };
