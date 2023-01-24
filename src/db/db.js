@@ -23,7 +23,7 @@ const nameQuery = async (name) => {
     try {
         const database = client.db("mma");
         const fighters = database.collection("fighters");
-        const query = { na: new RegExp(name.replace("_", " "), "i") };
+        const query = { name: new RegExp(name.replace("_", " "), "i") };
         const cursor = fighters.find(query);
         return new Promise(function(resolve, object) {
             resolve(cursor.toArray());
