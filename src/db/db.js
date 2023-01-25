@@ -32,4 +32,18 @@ const nameQuery = async (name) => {
     }
 };
 
-module.exports = { connectDatabase, nameQuery };
+const getTop = async (category, amt, dir) => {
+    connectDatabase();
+    try {
+        const database = client.db("mma");
+        const fighters = database.collection("fighters");
+        const mysort = {[category]: dir == 'true' ? -1 : 1};
+        const cursor = fighters.find({}).sort(mysort).limit(parseInt(amt));
+        return new Promise(function(resolve, object) {
+            resolve(cursor.toArray());
+        });
+    } finally {
+    }
+}
+
+module.exports = { connectDatabase, nameQuery, getTop };

@@ -12,7 +12,14 @@ const getAll = async function () {
     })
 };
 
+const getTop = async function (_category, _amt, _dir) {
+    return new Promise(function(resolve, object) {
+        mongo.getTop(_category, _amt, _dir).then(val => resolve(val));
+    })
+}
+
 module.exports = {
     getName,
     getAll,
+    getTop
 };

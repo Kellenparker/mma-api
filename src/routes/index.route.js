@@ -1,10 +1,14 @@
 const express = require("express");
 
-const data = require('./data.route');
-
 const router = express.Router();
 
+const data = require('./data.route');
+
 router.use('/data', data);
+
+const leaders = require('./leaders.route');
+
+router.use('/top', leaders);
 
 // Root and health routes
 router.get("/", (req, res) => res.send("Test test"));
